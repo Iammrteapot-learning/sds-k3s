@@ -21,7 +21,7 @@ spec:
         - name: config-volume
           mountPath: /app/frontend/src/common/constants/environment.ts
           subPath: environment.ts
-        command: ["npm", "run", "preview", "--", "--host"]
+        command: ["sh", "-c", "npm run build && npm run preview -- --host"]
       volumes:
       - name: config-volume
         configMap:
