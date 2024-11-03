@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: frontend-config
 data:
-  BACKEND_URL: "http://198.168.1.111/api"
+  BACKEND_URL: "http://198.168.1.111"
