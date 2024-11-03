@@ -9,7 +9,7 @@ data:
       server {
         listen 80;
 
-        location / {
+        location /web {
           proxy_pass http://frontend-3r.default.svc.cluster.local:4173;
           proxy_http_version 1.1;
           proxy_set_header Upgrade $http_upgrade;
