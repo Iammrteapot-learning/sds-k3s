@@ -1,0 +1,44 @@
+services:
+  frontend-3r:
+    image: tinnaung/frontend-3r-chippichat:latest
+    container_name: frontend-3r
+    ports:
+      - "4173:4173"
+    environment:
+      VITE_BACKEND_URL: "http://backend-3r"
+    depends_on:
+      - backend-3r
+    networks:
+      - network-3r
+
+  backend-3r:
+    image: tinnaung/backend-3r-chippichat:latest
+    container_name: backend-3r
+    ports:
+      - "5789:5789"
+    environment:
+      NODE_ENV: "production"
+      MONGO_URI: "mongodb://mongo:27017/sds-3r"
+      JWT_SECRET: "chippichippichappachappa"
+      JWT_EXPIRE: 30d
+      JWT_COOKIE_EXPIRE: 30
+    depends_on:
+      - mongo
+    networks:
+      - network-3r
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - network-3r
+
+volumes:
+  mongo-data:
+
+networks:
+  network-3r:
+    driver: bridge

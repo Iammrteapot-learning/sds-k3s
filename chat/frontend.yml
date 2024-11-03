@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-3r
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-3r
+  template:
+    metadata:
+      labels:
+        app: frontend-3r
+    spec:
+      containers:
+      - name: frontend-3r
+        image: tinnaung/frontend-3r-chippichat:latest
+        ports:
+        - containerPort: 4173
+        env:
+        - name: VITE_BACKEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: frontend-config
+              key: BACKEND_URL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-3r
+spec:
+  ports:
+  - port: 4173
+    targetPort: 4173
+  selector:
+    app: frontend-3r
