@@ -21,7 +21,7 @@ spec:
         - name: NODE_ENV
           value: "production"
         - name: MONGO_URI
-          value: "mongodb://mongo.svc.cluster.local:27017/sds-3r"
+          value: "mongodb://mongo.default.svc.cluster.local:27017/sds-3r"
         - name: JWT_SECRET
           value: "chippichippichappachappa"
         - name: JWT_EXPIRE
