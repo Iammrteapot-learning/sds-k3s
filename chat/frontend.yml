@@ -23,7 +23,7 @@ spec:
         tolerationSeconds: 20
       containers:
       - name: frontend-3r
-        image: docker.io/tinnaung/frontend-3r-chippichat:latest
+        image: tinnaung/frontend-3r-chippichat:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 4173
