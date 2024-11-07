@@ -24,6 +24,7 @@ spec:
       containers:
       - name: mongo
         image: arm64v8/mongo:4.4.18
+        imagePullPolicy: Never
         ports:
         - containerPort: 27017
         volumeMounts:

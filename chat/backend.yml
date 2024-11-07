@@ -25,6 +25,7 @@ spec:
       containers:
       - name: backend-3r
         image: tinnaung/backend-3r-chippichat:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 5789
         env:
